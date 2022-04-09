@@ -20,8 +20,12 @@ int main(){
     //create pointer to traverse list
     struct ifaddrs *address = addresses;
 
+
     while(address){
-        printf("%d\n", address->ifa_addr);
+
+        char addressname[100];
+        getnameinfo(address->ifa_addr, sizeof(struct sockaddr_in), addressname, sizeof(addressname),0,0, NI_NUMERICHOST);
+        printf("%s\n", addressname);
 
         address = address->ifa_next;
     }

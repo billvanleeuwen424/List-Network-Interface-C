@@ -17,4 +17,12 @@ int main(){
         exit(-1);
     }
 
+    //create pointer to traverse list
+    struct ifaddrs *address = addresses;
+
+    while(address){
+        printf("%d\n", address->ifa_addr);
+
+        address = address->ifa_next;
+    }
 }

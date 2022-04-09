@@ -33,7 +33,7 @@ int main(){
         int addrfamily = address->ifa_addr->sa_family;
 
         //only print ipv4 or ipv6 addresses
-        if (family == AF_INET || family == AF_INET6){
+        if (addrfamily == AF_INET || addrfamily == AF_INET6){
 
             printf("%s\t", address->ifa_name);
             printf("%s\t", addrfamily == AF_INET ? "IPv4" : "IPv6");

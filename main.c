@@ -19,14 +19,33 @@ int main(){
 
     //create pointer to traverse list
     struct ifaddrs *address = addresses;
+    
+    char addressname[100];
 
 
     while(address){
 
-        char addressname[100];
-        getnameinfo(address->ifa_addr, sizeof(struct sockaddr_in), addressname, sizeof(addressname),0,0, NI_NUMERICHOST);
-        printf("%s\n", addressname);
+        //check if addr is null for the list entry
+        while(address->ifa_addr == NULL){
+            address = address->ifa_next;
+        }
+
+        int addrfamily = address->ifa_addr->sa_family;
+
+        //only print ipv4 or ipv6 addresses
+        if (family == AF_INET || family == AF_INET6){
+
+            printf("%s\t", address->ifa_name);
+            printf("%s\t", addrfamily == AF_INET ? "IPv4" : "IPv6");
+
+            //get the readable ipaddr
+            getnameinfo(address->ifa_addr, sizeof(struct sockaddr_in), addressname, sizeof(addressname),0,0, NI_NUMERICHOST);
+            printf("%s\n", addressname);
+        }
 
         address = address->ifa_next;
     }
+
+    freeifaddrs(addresses);
+    return 0;
 }

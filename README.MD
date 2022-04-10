@@ -4,7 +4,7 @@ A simple C program written for Unix/Linux systems to print the local machine net
 
 ## Project Screen Shot(s)
 
-**add screenshot**
+![alt text](https://github.com/billvanleeuwen424/1.listNetworkAddrs/blob/image/screenshot.png)
 
 ## Reflection
 

@@ -2,7 +2,7 @@
 
 A simple C program written for Unix/Linux systems to print the local machine network interfaces
 
-## Project Screen Shot(s)
+## Project Screen Shot
 
 ![alt text](https://github.com/billvanleeuwen424/1.listNetworkAddrs/blob/image/screenshot.png)
 
